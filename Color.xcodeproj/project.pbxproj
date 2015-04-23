@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C55C38CE1AE8508B00BD4D3B /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55C38CD1AE8508B00BD4D3B /* UIColorExtensions.swift */; };
 		C5C4DB2A1AE80B3B004EB33D /* Color.h in Headers */ = {isa = PBXBuildFile; fileRef = C5C4DB291AE80B3B004EB33D /* Color.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5C4DB301AE80B3B004EB33D /* Color.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C4DB241AE80B3B004EB33D /* Color.framework */; };
 		C5C4DB411AE80B6A004EB33D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C4DB401AE80B6A004EB33D /* Color.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C55C38CD1AE8508B00BD4D3B /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		C5C4DB241AE80B3B004EB33D /* Color.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Color.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C4DB281AE80B3B004EB33D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5C4DB291AE80B3B004EB33D /* Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				C5C4DB291AE80B3B004EB33D /* Color.h */,
+				C55C38CD1AE8508B00BD4D3B /* UIColorExtensions.swift */,
 				C5C4DB401AE80B6A004EB33D /* Color.swift */,
 				C5C4DB271AE80B3B004EB33D /* Supporting Files */,
 			);
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5C4DB411AE80B6A004EB33D /* Color.swift in Sources */,
+				C55C38CE1AE8508B00BD4D3B /* UIColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +439,7 @@
 				C5C4DB3C1AE80B3B004EB33D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C5C4DB3D1AE80B3B004EB33D /* Build configuration list for PBXNativeTarget "ColorTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +448,7 @@
 				C5C4DB3F1AE80B3B004EB33D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

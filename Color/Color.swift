@@ -6,31 +6,60 @@
 //  Copyright (c) 2015 SnapFashion. All rights reserved.
 //
 
+public struct RGB {
+  public var r: CGFloat
+  public var g: CGFloat
+  public var b: CGFloat
+  public var a: CGFloat
+}
+
+public struct HSL {
+  public var h: CGFloat
+  public var s: CGFloat
+  public var l: CGFloat
+  public var a: CGFloat
+}
+
+public struct HSV {
+  public var h: CGFloat
+  public var s: CGFloat
+  public var v: CGFloat
+  public var a: CGFloat
+}
+
 public struct Color {
-  public var h: CGFloat = 0
-  public var s: CGFloat = 0
-  public var l: CGFloat = 0
-  public var a: CGFloat = 1.0
+  var h: CGFloat = 0.0, s: CGFloat = 0.0, l: CGFloat = 0.0
+  var a: CGFloat = 1.0
   
   //HSL Initializers
-  public init (h: CGFloat, s: CGFloat, l: CGFloat, a: CGFloat=1.0) {
+  init (h: CGFloat, s: CGFloat, l: CGFloat, a: CGFloat=1.0) {
     self.h = h; self.s = s; self.l = l; self.a = a
   }
-  
-  //HSV/HSB Initializers
-  public init (h: CGFloat, s: CGFloat, b: CGFloat, a: CGFloat=1.0) {
-    HSVtoHSL(h, s: s, v: b)
-    self.a = a
+  public static func hsl(h: CGFloat, s: CGFloat, l: CGFloat, a: CGFloat=1.0) -> Color {
+    let color = Color(h: h, s: s, l: l, a: a)
+    return color
   }
-  
-  public init (h: CGFloat, s: CGFloat, v: CGFloat, a: CGFloat=1.0) {
+  //HSV/HSB Initializers
+  init (h: CGFloat, s: CGFloat, v: CGFloat, a: CGFloat=1.0) {
     HSVtoHSL(h, s: s, v: v)
     self.a = a
   }
-  
-  public init (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat=1.0) {
+  public static func hsb(h: CGFloat, s: CGFloat, b: CGFloat, a: CGFloat=1.0) -> Color {
+    let color = Color(h: h, s: s, v: b, a: a)
+    return color
+  }
+  public static func hsv(h: CGFloat, s: CGFloat, v: CGFloat, a: CGFloat=1.0) -> Color {
+    let color = Color(h: h, s: s, v: v, a: a)
+    return color
+  }
+  //RGB Initializer
+  init (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat=1.0) {
     RGBtoHSL(r, g: g, b: b)
     self.a = a
+  }
+  public static func rgb(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat=1.0) -> Color {
+    let color = Color(r: r, g: g, b: b, a: a)
+    return color
   }
 }
 
@@ -41,16 +70,14 @@ extension Color {
     let s: CGFloat = (2*(b-l))/b
     return (h,s,b,a)
   }
-  public var hsv: (h: CGFloat, s: CGFloat, v: CGFloat, a: CGFloat) {
-    let b: CGFloat = ((2*l) + (self.s*(1-abs(2*l-1))))/2
-    let s: CGFloat = (2*(b-l))/b
-    return (h,sv,b,a)
+  public var hsv: HSV {
+    return HSV(h: h, s: s, v: v, a: a)
   }
-  public var rgb: (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
-    return (red,green,blue,a)
+  public var rgb: RGB {
+    return RGB(r: red, g: green, b: blue, a: a)
   }
-  public var hsl: (h: CGFloat, s: CGFloat, l: CGFloat, a: CGFloat) {
-    return (h,s,l,a)
+  public var hsl: HSL {
+    return HSL(h: h, s: s, l: l, a: a)
   }
 }
 
@@ -93,6 +120,12 @@ extension Color {
 
 //RGB
 extension Color {
+  private var q: CGFloat {
+    return l < 0.5 ? l * (1 + s) : l + s - l * s
+  }
+  private var p: CGFloat {
+    return 2 * l - q
+  }
   func hue2rgb(p: CGFloat, q: CGFloat, t: CGFloat) -> CGFloat {
     var tempt: CGFloat = t
     if tempt < 0 { tempt += CGFloat(1.0) }
@@ -102,14 +135,8 @@ extension Color {
     if tempt < 2/3 { return p + (q - p) * (2/3 - tempt) * 6 }
     return p
   }
-  private var q: CGFloat {
-    return l < 0.5 ? l * (1 + s) : l + s - l * s
-  }
-  private var p: CGFloat {
-    return 2 * l - q
-  }
   
-  public var red: CGFloat {
+  var red: CGFloat {
     set {
       RGBtoHSL(newValue, g: green, b: blue)
     }
@@ -117,7 +144,7 @@ extension Color {
       return hue2rgb(p, q: q, t: h + 1/3)
     }
   }
-  public var green: CGFloat {
+  var green: CGFloat {
     set {
       RGBtoHSL(red, g: newValue, b: blue)
     }
@@ -126,7 +153,7 @@ extension Color {
       return value
     }
   }
-  public var blue: CGFloat {
+  var blue: CGFloat {
     set {
       RGBtoHSL(red, g: green, b: newValue)
     }
@@ -140,7 +167,7 @@ extension Color {
 extension Color {
   var sv: CGFloat {
     set {
-      
+      HSVtoHSL(h, s: newValue, v: v)
     }
     get {
       return (2*(b-l))/b
@@ -148,7 +175,7 @@ extension Color {
   }
   var v: CGFloat {
     set {
-      
+      HSVtoHSL(h, s: sv, v: newValue)
     }
     get {
       return ((2*l) + (s*(1-abs(2*l-1))))/2
@@ -156,7 +183,7 @@ extension Color {
   }
   var b: CGFloat {
     set {
-      
+      v = newValue
     }
     get {
       return v
