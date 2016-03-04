@@ -1,107 +1,79 @@
 //
 //  Color.swift
-//  SnapFashion
 //
 //  Created by Tom Clark on 2015-04-22.
-//  Copyright (c) 2015 SnapFashion. All rights reserved.
+//  Copyright (c) 2015 FluidDynamics. All rights reserved.
 //
 
-public struct RGB {
-  public var r: CGFloat
-  public var g: CGFloat
-  public var b: CGFloat
-  public var a: CGFloat
+public protocol OSColor {
+  var OSColor: UIColor { get }
 }
 
-public struct HSL {
-  public var h: CGFloat
-  public var s: CGFloat
-  public var l: CGFloat
-  public var a: CGFloat
+public protocol ColorData {
+  var toRGB: RGB { get }
+  var toHSL: HSL { get }
+  var toHSV: HSV { get }
 }
 
-public struct HSV {
-  public var h: CGFloat
-  public var s: CGFloat
-  public var v: CGFloat
-  public var a: CGFloat
-}
 
-public struct Color {
-  var h: CGFloat = 0.0, s: CGFloat = 0.0, l: CGFloat = 0.0
-  var a: CGFloat = 1.0
-  
-  //HSL Initializers
-  init (h: CGFloat, s: CGFloat, l: CGFloat, a: CGFloat=1.0) {
-    self.h = h; self.s = s; self.l = l; self.a = a
-  }
-  public static func hsl(h: CGFloat, s: CGFloat, l: CGFloat, a: CGFloat=1.0) -> Color {
-    let color = Color(h: h, s: s, l: l, a: a)
-    return color
-  }
-  //HSV/HSB Initializers
-  init (h: CGFloat, s: CGFloat, v: CGFloat, a: CGFloat=1.0) {
-    HSVtoHSL(h, s: s, v: v)
-    self.a = a
-  }
-  public static func hsb(h: CGFloat, s: CGFloat, b: CGFloat, a: CGFloat=1.0) -> Color {
-    let color = Color(h: h, s: s, v: b, a: a)
-    return color
-  }
-  public static func hsv(h: CGFloat, s: CGFloat, v: CGFloat, a: CGFloat=1.0) -> Color {
-    let color = Color(h: h, s: s, v: v, a: a)
-    return color
-  }
-  //RGB Initializer
-  init (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat=1.0) {
-    RGBtoHSL(r, g: g, b: b)
-    self.a = a
-  }
-  public static func rgb(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat=1.0) -> Color {
-    let color = Color(r: r, g: g, b: b, a: a)
-    return color
-  }
-}
+public struct HSL: ColorData {
+  public let h: CGFloat
+  public let s: CGFloat
+  public let l: CGFloat
+  public let a: CGFloat
 
-//Tuple Functions
-extension Color {
-  public var hsb: (h: CGFloat, s: CGFloat, b: CGFloat, a: CGFloat) {
-    let b: CGFloat = ((2*l) + (self.s*(1-abs(2*l-1))))/2
-    let s: CGFloat = (2*(b-l))/b
-    return (h,s,b,a)
+  public var toHSL: HSL {
+    return self
   }
-  public var hsv: HSV {
+
+  public var toRGB: RGB {
+    var q: CGFloat {
+      return l < 0.5 ? l * (1 + s) : l + s - l * s
+    }
+    var p: CGFloat {
+      return 2 * l - q
+    }
+    func hue2rgb(p: CGFloat, q: CGFloat, t: CGFloat) -> CGFloat {
+      var tempt: CGFloat = t
+      if tempt < 0 { tempt += CGFloat(1.0) }
+      if tempt > 1 { tempt -= 1.0 }
+      if tempt < 1/6 { return p + (q - p) * 6 * tempt }
+      if tempt < 1/2 { return q }
+      if tempt < 2/3 { return p + (q - p) * (2/3 - tempt) * 6 }
+      return p
+    }
+    let r = hue2rgb(p, q: q, t: h + 1/3)
+    let g = hue2rgb(p, q: q, t: h)
+    let b = hue2rgb(p, q: q, t: h - 1/3)
+
+    return RGB(r: r, g: g, b: b, a: a)
+  }
+
+  public var toHSV: HSV {
+    let v = ((2*l) + (self.s*(1-abs(2*l-1))))/2
+    let s = v == 0 ? 0 : (2*(v-l))/v
+
     return HSV(h: h, s: s, v: v, a: a)
   }
-  public var rgb: RGB {
-    return RGB(r: red, g: green, b: blue, a: a)
-  }
-  public var hsl: HSL {
-    return HSL(h: h, s: s, l: l, a: a)
-  }
 }
 
-//Converters
-extension Color {
-  mutating func HSVtoHSL(h: CGFloat, s: CGFloat, v:CGFloat) {
-    var l = (2 - s) * v
-    var ss = s * v
-    ss /= (l <= 1) ? l : 2 - l
-    l /= 2
-    
-    self.h = h
-    self.s = ss
-    self.l = l
+public struct RGB: ColorData {
+  public let r: CGFloat
+  public let g: CGFloat
+  public let b: CGFloat
+  public let a: CGFloat
+
+  public var toRGB: RGB {
+    return self
   }
-  mutating func RGBtoHSL(r: CGFloat, g: CGFloat, b: CGFloat) {
-    assert(r <= 1.0 && g <= 1.0 && b <= 1.0, "Color values must be less than 1.0")
-    //RGB need to be between 0.0 and 1.0
-    var maxColor: CGFloat = max(r,g,b)
-    var minColor: CGFloat = min(r, g, b)
-    var h: CGFloat=0.0, s: CGFloat=0.0, l = (maxColor + minColor) / 2;
-    
+
+  public var toHSL: HSL {
+    let maxColor = max(r, g, b)
+    let minColor = min(r, g, b)
+    var h = CGFloat(0.0), s = CGFloat(0.0), l = (maxColor + minColor) / 2;
+
     if maxColor != minColor {
-      var d = maxColor - minColor;
+      let d = maxColor - minColor;
       s = l > 0.5 ? d / (2 - maxColor - minColor) : d / (maxColor + minColor);
       switch maxColor {
       case r: h = (g - b) / d + (g < b ? 6 : 0)
@@ -112,81 +84,81 @@ extension Color {
       }
       h /= 6
     }
-    self.h = h
-    self.s = s
-    self.l = l
+    return HSL(h: h, s: s, l: l, a: a)
+  }
+
+  public var toHSV: HSV {
+    return self.toHSL.toHSV
   }
 }
 
-//RGB
-extension Color {
-  private var q: CGFloat {
-    return l < 0.5 ? l * (1 + s) : l + s - l * s
+public struct HSV: ColorData {
+  public let h: CGFloat
+  public let s: CGFloat
+  public let v: CGFloat
+  public let a: CGFloat
+
+  public var toHSV: HSV {
+    return self
   }
-  private var p: CGFloat {
-    return 2 * l - q
+
+  public var toRGB: RGB {
+    var r = CGFloat(0.0), g = CGFloat(0.0), b = CGFloat(0.0)
+    let i = floor(h * 6)
+    let f = h * 6 - i;
+    let p = v * (1 - s);
+    let q = v * (1 - f * s);
+    let t = v * (1 - (1 - f) * s);
+
+    switch(i % 6){
+    case 0: r = v; g = t; b = p
+    case 1: r = q; g = v; b = p
+    case 2: r = p; g = v; b = t
+    case 3: r = p; g = q; b = v
+    case 4: r = t; g = p; b = v
+    case 5: r = v; g = p; b = q
+    default:
+      return RGB(r: 1.0, g: 1.0, b: 1.0, a: 1.0)
+    }
+
+    return RGB(r: r, g: g, b: b, a: a)
   }
-  func hue2rgb(p: CGFloat, q: CGFloat, t: CGFloat) -> CGFloat {
-    var tempt: CGFloat = t
-    if tempt < 0 { tempt += CGFloat(1.0) }
-    if tempt > 1 { tempt -= 1.0 }
-    if tempt < 1/6 { return p + (q - p) * 6 * tempt }
-    if tempt < 1/2 { return q }
-    if tempt < 2/3 { return p + (q - p) * (2/3 - tempt) * 6 }
-    return p
-  }
-  
-  var red: CGFloat {
-    set {
-      RGBtoHSL(newValue, g: green, b: blue)
-    }
-    get {
-      return hue2rgb(p, q: q, t: h + 1/3)
-    }
-  }
-  var green: CGFloat {
-    set {
-      RGBtoHSL(red, g: newValue, b: blue)
-    }
-    get {
-      let value = hue2rgb(p, q: q, t: h)
-      return value
-    }
-  }
-  var blue: CGFloat {
-    set {
-      RGBtoHSL(red, g: green, b: newValue)
-    }
-    get {
-      return hue2rgb(p, q: q, t: h - 1/3)
-    }
+
+  public var toHSL: HSL {
+    return self.toRGB.toHSL
   }
 }
 
-//HSV/HSB
-extension Color {
-  var sv: CGFloat {
-    set {
-      HSVtoHSL(h, s: newValue, v: v)
-    }
-    get {
-      return (2*(b-l))/b
-    }
+extension Color: OSColor {
+  public var OSColor: UIColor {
+    return UIColor()
   }
-  var v: CGFloat {
-    set {
-      HSVtoHSL(h, s: sv, v: newValue)
-    }
-    get {
-      return ((2*l) + (s*(1-abs(2*l-1))))/2
-    }
+}
+
+public struct Color {
+  private let data: ColorData
+
+  public init(h: CGFloat, s: CGFloat, v: CGFloat, a: CGFloat=1.0) {
+    self.data = HSV(h: h, s: s, v: v, a: a)
   }
-  var b: CGFloat {
-    set {
-      v = newValue
-    }
-    get {
-      return v
-    }
+
+  public init(h: CGFloat, s: CGFloat, l: CGFloat, a: CGFloat=1.0) {
+    self.data = HSL(h: h, s: s, l: l, a: a)
+  }
+
+  public init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat=1.0) {
+    self.data = RGB(r: r, g: g, b: b, a: a)
+  }
+
+  public var rgb: RGB {
+    return data.toRGB
+  }
+
+  public var hsl: HSL {
+    return data.toHSL
+  }
+
+  public var hsv: HSV {
+    return data.toHSV
   }
 }
