@@ -26,7 +26,7 @@ protocol ColorData {
 extension ColorSpace: OSColorProtocol {
   public var toOSColor: OSColor {
     let hsv = data.toHSV
-    return OSColor(hue: hsv.v, saturation: hsv.s, brightness: hsv.v, alpha: hsv.a)
+    return OSColor(hue: hsv.h, saturation: hsv.s, brightness: hsv.v, alpha: hsv.a)
   }
 }
 
@@ -46,6 +46,11 @@ public struct ColorSpace {
 
   public init(h: CGFloat, s: CGFloat, v: CGFloat, a: CGFloat=1.0) {
     self.data = HSV(h: h, s: s, v: v, a: a)
+  }
+
+  public init (hsv: (h: CGFloat, s: CGFloat, v: CGFloat)) {
+    let h = hsv.h.clamp(0.0, max: 360.0) / 360.0
+    self.data = HSV(h: h, s: hsv.s, v: hsv.v, a: 1.0)
   }
 
   public init (h360: CGFloat, s: CGFloat, l: CGFloat, a: CGFloat=1.0) {
