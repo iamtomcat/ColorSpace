@@ -1,5 +1,5 @@
 //
-//  Color.swift
+//  ColorSpace.swift
 //
 //  Created by Tom Clark on 2015-04-22.
 //  Copyright (c) 2015 FluidDynamics. All rights reserved.
@@ -59,6 +59,27 @@ public struct Color {
 
   public init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat=1.0) {
     self.data = RGB(r: r, g: g, b: b, a: a)
+  }
+
+  public init(hsl: HSL) {
+    self.data = hsl
+  }
+
+  public func roundColor(byValue value: CGFloat) -> Color {
+    let hsl = self.data.toHSL
+    var s = hsl.s, l = hsl.l
+    if hsl.s >= 0.7 {
+      s -= value
+    } else if s <= 0.3 {
+      s += value
+    }
+
+    if l >= 0.7 {
+      l -= value
+    } else if l <= 0.3 {
+      l += value
+    }
+    return Color(h: hsl.h, s: s, l: l)
   }
 
   public var rgb: RGB {

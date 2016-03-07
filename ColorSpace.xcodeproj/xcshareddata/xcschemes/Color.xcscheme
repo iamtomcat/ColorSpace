@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C5C4DB231AE80B3B004EB33D"
-               BuildableName = "Color.framework"
-               BlueprintName = "Color"
-               ReferencedContainer = "container:Color.xcodeproj">
+               BuildableName = "ColorSpace.framework"
+               BlueprintName = "ColorSpace"
+               ReferencedContainer = "container:ColorSpace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C5C4DB2E1AE80B3B004EB33D"
-               BuildableName = "ColorTests.xctest"
-               BlueprintName = "ColorTests"
-               ReferencedContainer = "container:Color.xcodeproj">
+               BuildableName = "ColorSpace.xctest"
+               BlueprintName = "ColorSpaceTests"
+               ReferencedContainer = "container:ColorSpace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C5C4DB2E1AE80B3B004EB33D"
-               BuildableName = "ColorTests.xctest"
-               BlueprintName = "ColorTests"
-               ReferencedContainer = "container:Color.xcodeproj">
+               BuildableName = "ColorSpace.xctest"
+               BlueprintName = "ColorSpaceTests"
+               ReferencedContainer = "container:ColorSpace.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C5C4DB231AE80B3B004EB33D"
-            BuildableName = "Color.framework"
-            BlueprintName = "Color"
-            ReferencedContainer = "container:Color.xcodeproj">
+            BuildableName = "ColorSpace.framework"
+            BlueprintName = "ColorSpace"
+            ReferencedContainer = "container:ColorSpace.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -79,9 +79,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C5C4DB231AE80B3B004EB33D"
-            BuildableName = "Color.framework"
-            BlueprintName = "Color"
-            ReferencedContainer = "container:Color.xcodeproj">
+            BuildableName = "ColorSpace.framework"
+            BlueprintName = "ColorSpace"
+            ReferencedContainer = "container:ColorSpace.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -97,9 +97,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C5C4DB231AE80B3B004EB33D"
-            BuildableName = "Color.framework"
-            BlueprintName = "Color"
-            ReferencedContainer = "container:Color.xcodeproj">
+            BuildableName = "ColorSpace.framework"
+            BlueprintName = "ColorSpace"
+            ReferencedContainer = "container:ColorSpace.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

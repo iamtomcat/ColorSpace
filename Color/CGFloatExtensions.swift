@@ -1,6 +1,6 @@
 //
 //  CGFloatExtensions.swift
-//  Color
+//  ColorSpace
 //
 //  Created by Tom Clark on 2016-03-07.
 //  Copyright © 2016 FluidDynamics. All rights reserved.
