@@ -8,17 +8,21 @@
 
 import Foundation
 
+public func ==(lhs: RGB, rhs: RGB) -> Bool {
+  return lhs.r == rhs.r && lhs.g == rhs.g && lhs.b == rhs.b && lhs.a == rhs.a
+}
+
 public struct RGB {
   public let r: CGFloat
   public let g: CGFloat
   public let b: CGFloat
   public let a: CGFloat
 
-  public init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
-    self.r = min(max(0.0, r), 1.0)
-    self.g = min(max(0.0, g), 1.0)
-    self.b = min(max(0.0, b), 1.0)
-    self.a = min(max(0.0, a), 1.0)
+  init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
+    self.r = r.clamp(0.0, max: 1.0)
+    self.g = g.clamp(0.0, max: 1.0)
+    self.b = b.clamp(0.0, max: 1.0)
+    self.a = a.clamp(0.0, max: 1.0)
   }
 }
 
@@ -51,3 +55,5 @@ extension RGB: ColorData {
     return self.toHSL.toHSV
   }
 }
+
+extension RGB: Equatable {}

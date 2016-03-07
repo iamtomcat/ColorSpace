@@ -66,27 +66,54 @@ class ColorSpec: QuickSpec {
 
     describe("HSV color converters") {
       var color: Color!
-      beforeEach {
-        // RGB: #ba31a0
-        color = Color(h: 0.864972222, s: 0.7366, v: 0.7294)
-      }
 
-      it("should convert HSV to RGB") {
-        expect(color.rgb.r).to(beCloseTo(0.729411765, within: 0.001))
-        expect(color.rgb.g).to(beCloseTo(0.192156863, within: 0.001))
-        expect(color.rgb.b).to(beCloseTo(0.62745098, within: 0.001))
-      }
+      context("using decimal numbers") {
+        beforeEach {
+          // RGB: #ba31a0
+          color = Color(h: 0.864972222, s: 0.7366, v: 0.7294)
+        }
 
-      it("should convert HSV to HSL") {
-        expect(color.hsl.h).to(beCloseTo(0.864972222, within: 0.001))
-        expect(color.hsl.s).to(beCloseTo(0.583, within: 0.001))
-        expect(color.hsl.l).to(beCloseTo(0.4608, within: 0.001))
-      }
+        it("should convert HSV to RGB") {
+          expect(color.rgb.r).to(beCloseTo(0.729411765, within: 0.001))
+          expect(color.rgb.g).to(beCloseTo(0.192156863, within: 0.001))
+          expect(color.rgb.b).to(beCloseTo(0.62745098, within: 0.001))
+        }
 
-      it("should return an HSV object") {
-        expect(color.hsv.h).to(equal(0.864972222))
-        expect(color.hsv.s).to(equal(0.7366))
-        expect(color.hsv.v).to(equal(0.7294))
+        it("should convert HSV to HSL") {
+          expect(color.hsl.h).to(beCloseTo(0.864972222, within: 0.001))
+          expect(color.hsl.s).to(beCloseTo(0.583, within: 0.001))
+          expect(color.hsl.l).to(beCloseTo(0.4608, within: 0.001))
+        }
+
+        it("should return an HSV object") {
+          expect(color.hsv.h).to(equal(0.864972222))
+          expect(color.hsv.s).to(equal(0.7366))
+          expect(color.hsv.v).to(equal(0.7294))
+        }
+      }
+      context("using a number between 0 and 360") {
+        beforeEach {
+          // RGB: #ba31a0
+          color = Color(h360: 311.38999992, s: 0.7366, v: 0.7294)
+        }
+
+        it("should convert HSV to RGB") {
+          expect(color.rgb.r).to(beCloseTo(0.729411765, within: 0.001))
+          expect(color.rgb.g).to(beCloseTo(0.192156863, within: 0.001))
+          expect(color.rgb.b).to(beCloseTo(0.62745098, within: 0.001))
+        }
+
+        it("should convert HSV to HSL") {
+          expect(color.hsl.h).to(beCloseTo(0.864972222, within: 0.001))
+          expect(color.hsl.s).to(beCloseTo(0.583, within: 0.001))
+          expect(color.hsl.l).to(beCloseTo(0.4608, within: 0.001))
+        }
+
+        it("should return an HSV object") {
+          expect(color.hsv.h).to(beCloseTo(0.864972222, within: 0.001))
+          expect(color.hsv.s).to(equal(0.7366))
+          expect(color.hsv.v).to(equal(0.7294))
+        }
       }
     }
   }

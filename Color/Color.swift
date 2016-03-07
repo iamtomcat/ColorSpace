@@ -14,7 +14,7 @@
 #endif
 
 public protocol OSColorProtocol {
-  var toOSColor: UIColor { get }
+  var toOSColor: OSColor { get }
 }
 
 protocol ColorData {
@@ -30,11 +30,27 @@ extension Color: OSColorProtocol {
   }
 }
 
+extension Color: Equatable {}
+
+public func ==(lhs: Color, rhs: Color) -> Bool {
+  return lhs.rgb == rhs.rgb
+}
+
 public struct Color {
   private let data: ColorData
 
+  public init (h360: CGFloat, s: CGFloat, v: CGFloat, a: CGFloat=1.0) {
+    let h = h360.clamp(0.0, max: 360.0) / 360.0
+    self.data = HSV(h: h, s: s, v: v, a: a)
+  }
+
   public init(h: CGFloat, s: CGFloat, v: CGFloat, a: CGFloat=1.0) {
     self.data = HSV(h: h, s: s, v: v, a: a)
+  }
+
+  public init (h360: CGFloat, s: CGFloat, l: CGFloat, a: CGFloat=1.0) {
+    let h = h360.clamp(0.0, max: 360.0) / 360.0
+    self.data = HSL(h: h, s: s, l: l, a: a)
   }
 
   public init(h: CGFloat, s: CGFloat, l: CGFloat, a: CGFloat=1.0) {
