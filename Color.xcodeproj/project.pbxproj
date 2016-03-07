@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C55C38CE1AE8508B00BD4D3B /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55C38CD1AE8508B00BD4D3B /* UIColorExtensions.swift */; };
+		C5670CC51C8D81B50065BCF3 /* HSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5670CC41C8D81B50065BCF3 /* HSV.swift */; };
+		C5670CC71C8D82270065BCF3 /* HSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5670CC61C8D82270065BCF3 /* HSL.swift */; };
+		C5670CC91C8D82760065BCF3 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5670CC81C8D82760065BCF3 /* RGB.swift */; };
 		C5C4DB2A1AE80B3B004EB33D /* Color.h in Headers */ = {isa = PBXBuildFile; fileRef = C5C4DB291AE80B3B004EB33D /* Color.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C5C4DB301AE80B3B004EB33D /* Color.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C4DB241AE80B3B004EB33D /* Color.framework */; };
 		C5C4DB411AE80B6A004EB33D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C4DB401AE80B6A004EB33D /* Color.swift */; };
@@ -44,6 +47,9 @@
 
 /* Begin PBXFileReference section */
 		C55C38CD1AE8508B00BD4D3B /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		C5670CC41C8D81B50065BCF3 /* HSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSV.swift; sourceTree = "<group>"; };
+		C5670CC61C8D82270065BCF3 /* HSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSL.swift; sourceTree = "<group>"; };
+		C5670CC81C8D82760065BCF3 /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
 		C5C4DB241AE80B3B004EB33D /* Color.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Color.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C4DB281AE80B3B004EB33D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5C4DB291AE80B3B004EB33D /* Color.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
@@ -102,6 +108,9 @@
 				C5C4DB291AE80B3B004EB33D /* Color.h */,
 				C55C38CD1AE8508B00BD4D3B /* UIColorExtensions.swift */,
 				C5C4DB401AE80B6A004EB33D /* Color.swift */,
+				C5670CC41C8D81B50065BCF3 /* HSV.swift */,
+				C5670CC61C8D82270065BCF3 /* HSL.swift */,
+				C5670CC81C8D82760065BCF3 /* RGB.swift */,
 				C5C4DB271AE80B3B004EB33D /* Supporting Files */,
 			);
 			path = Color;
@@ -191,7 +200,7 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = FluidDynamics;
 				TargetAttributes = {
 					C5C4DB231AE80B3B004EB33D = {
@@ -242,8 +251,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5670CC91C8D82760065BCF3 /* RGB.swift in Sources */,
+				C5670CC51C8D81B50065BCF3 /* HSV.swift in Sources */,
 				C5C4DB411AE80B6A004EB33D /* Color.swift in Sources */,
 				C55C38CE1AE8508B00BD4D3B /* UIColorExtensions.swift in Sources */,
+				C5670CC71C8D82270065BCF3 /* HSL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +300,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -366,6 +379,7 @@
 				INFOPLIST_FILE = Color/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.fluiddynamics.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -383,6 +397,7 @@
 				INFOPLIST_FILE = Color/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.fluiddynamics.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -403,6 +418,7 @@
 				);
 				INFOPLIST_FILE = ColorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.fluiddynamics.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -418,6 +434,7 @@
 				);
 				INFOPLIST_FILE = ColorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.fluiddynamics.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
