@@ -8,15 +8,15 @@
 
 import Quick
 import Nimble
-import Color
+import ColorSpace
 
 class ColorSpec: QuickSpec {
   override func spec() {
     describe("RGB color converters") {
-      var color: Color!
+      var color: ColorSpace!
       beforeEach {
         // RGB: #68a13e
-        color = Color(r: 0.407843137, g: 0.631372549, b: 0.243137255)
+        color = ColorSpace(r: 0.407843137, g: 0.631372549, b: 0.243137255)
       }
       
       it("should convert RGB to HSL") {
@@ -39,10 +39,10 @@ class ColorSpec: QuickSpec {
     }
 
     describe("HSL color converters") {
-      var color: Color!
+      var color: ColorSpace!
       beforeEach {
         // RGB: #14a36a
-        color = Color(h: 0.433555556, s: 0.7814, l: 0.3588)
+        color = ColorSpace(h: 0.433555556, s: 0.7814, l: 0.3588)
       }
       
       it("should convert HSL to RGB") {
@@ -65,12 +65,12 @@ class ColorSpec: QuickSpec {
     }
 
     describe("HSV color converters") {
-      var color: Color!
+      var color: ColorSpace!
 
       context("using decimal numbers") {
         beforeEach {
           // RGB: #ba31a0
-          color = Color(h: 0.864972222, s: 0.7366, v: 0.7294)
+          color = ColorSpace(h: 0.864972222, s: 0.7366, v: 0.7294)
         }
 
         it("should convert HSV to RGB") {
@@ -94,7 +94,7 @@ class ColorSpec: QuickSpec {
       context("using a number between 0 and 360") {
         beforeEach {
           // RGB: #ba31a0
-          color = Color(h360: 311.38999992, s: 0.7366, v: 0.7294)
+          color = ColorSpace(h360: 311.38999992, s: 0.7366, v: 0.7294)
         }
 
         it("should convert HSV to RGB") {

@@ -9,7 +9,7 @@
 import Foundation
 
 extension UIColor {
-  public var colorSpace: Color? {
+  public var colorSpace: ColorSpace? {
     return getRGB()
   }
 
@@ -20,7 +20,7 @@ extension UIColor {
     return false
   }
 
-  public func getHSB() -> Color? {
+  public func getHSB() -> ColorSpace? {
     let h = UnsafeMutablePointer<CGFloat>.alloc(1)
     let s = UnsafeMutablePointer<CGFloat>.alloc(1)
     let b = UnsafeMutablePointer<CGFloat>.alloc(1)
@@ -29,19 +29,19 @@ extension UIColor {
     if !getHue(h, saturation: s, brightness: b, alpha: a) {
       return nil
     }
-    return Color(h: h.memory, s: s.memory, v: b.memory, a: a.memory)
+    return ColorSpace(h: h.memory, s: s.memory, v: b.memory, a: a.memory)
   }
 
-  private func getRGB() -> Color? {
+  private func getRGB() -> ColorSpace? {
     let r = UnsafeMutablePointer<CGFloat>.alloc(1)
     let g = UnsafeMutablePointer<CGFloat>.alloc(1)
     let b = UnsafeMutablePointer<CGFloat>.alloc(1)
     let a = UnsafeMutablePointer<CGFloat>.alloc(1)
 
     if !getRed(r, green: g, blue: b, alpha: a) {
-      return Color(r: 1.0, g: 1.0, b: 1.0, a: 1.0)
+      return ColorSpace(r: 1.0, g: 1.0, b: 1.0, a: 1.0)
     }
 
-    return Color(r: r.memory, g: g.memory, b: b.memory, a: a.memory)
+    return ColorSpace(r: r.memory, g: g.memory, b: b.memory, a: a.memory)
   }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 import Nimble
 import Quick
-import Color
+import ColorSpace
 
 class UIColorSpec : QuickSpec {
 
@@ -23,8 +23,8 @@ class UIColorSpec : QuickSpec {
       }
 
       it("should return a Color object") {
-        let hsv = sut.getHSB()
-        expect(hsv).to(equal(Color(r: 0.505882353, g: 0.407843137, b: 0.211764706, a: 1.0)))
+        let hsv = sut.colorSpace
+        expect(hsv).to(equal(ColorSpace(r: 0.505882353, g: 0.407843137, b: 0.211764706, a: 1.0)))
       }
     }
   }

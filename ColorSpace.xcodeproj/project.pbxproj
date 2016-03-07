@@ -7,20 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C54F4B711C8DCAD200829FF4 /* ColorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54F4B701C8DCAD200829FF4 /* ColorSpec.swift */; };
 		C55C38CE1AE8508B00BD4D3B /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55C38CD1AE8508B00BD4D3B /* UIColorExtensions.swift */; };
 		C5670CC51C8D81B50065BCF3 /* HSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5670CC41C8D81B50065BCF3 /* HSV.swift */; };
 		C5670CC71C8D82270065BCF3 /* HSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5670CC61C8D82270065BCF3 /* HSL.swift */; };
 		C5670CC91C8D82760065BCF3 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5670CC81C8D82760065BCF3 /* RGB.swift */; };
-		C5670CD01C8D91B50065BCF3 /* UIColorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5670CCF1C8D91B50065BCF3 /* UIColorSpec.swift */; };
 		C5670CD21C8D9AA00065BCF3 /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5670CD11C8D9AA00065BCF3 /* CGFloatExtensions.swift */; };
+		C582EA161C8DD455000ABB10 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C582EA141C8DD455000ABB10 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C582EA171C8DD455000ABB10 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C582EA151C8DD455000ABB10 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5C047431C8DD16E00B6A6EF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5C047401C8DD16E00B6A6EF /* Info.plist */; };
+		C5C047451C8DD19A00B6A6EF /* UIColorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C047411C8DD16E00B6A6EF /* UIColorSpec.swift */; };
+		C5C047461C8DD19C00B6A6EF /* ColorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C0473F1C8DD16E00B6A6EF /* ColorSpec.swift */; };
 		C5C4DB2A1AE80B3B004EB33D /* ColorSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = C5C4DB291AE80B3B004EB33D /* ColorSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C5C4DB301AE80B3B004EB33D /* ColorSpace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C4DB241AE80B3B004EB33D /* ColorSpace.framework */; };
 		C5C4DB411AE80B6A004EB33D /* ColorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C4DB401AE80B6A004EB33D /* ColorSpace.swift */; };
-		C5C4DB461AE80ECF004EB33D /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C4DB441AE80ECF004EB33D /* Nimble.framework */; };
-		C5C4DB471AE80ECF004EB33D /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C4DB451AE80ECF004EB33D /* Quick.framework */; };
-		C5C4DB491AE81A59004EB33D /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5C4DB441AE80ECF004EB33D /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C5C4DB4A1AE81A59004EB33D /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C5C4DB451AE80ECF004EB33D /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,29 +38,29 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C5C4DB491AE81A59004EB33D /* Nimble.framework in CopyFiles */,
-				C5C4DB4A1AE81A59004EB33D /* Quick.framework in CopyFiles */,
+				C582EA161C8DD455000ABB10 /* Nimble.framework in CopyFiles */,
+				C582EA171C8DD455000ABB10 /* Quick.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C54F4B701C8DCAD200829FF4 /* ColorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSpec.swift; sourceTree = "<group>"; };
 		C55C38CD1AE8508B00BD4D3B /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		C5670CC41C8D81B50065BCF3 /* HSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSV.swift; sourceTree = "<group>"; };
 		C5670CC61C8D82270065BCF3 /* HSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSL.swift; sourceTree = "<group>"; };
 		C5670CC81C8D82760065BCF3 /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
-		C5670CCF1C8D91B50065BCF3 /* UIColorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorSpec.swift; sourceTree = "<group>"; };
 		C5670CD11C8D9AA00065BCF3 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
+		C582EA141C8DD455000ABB10 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		C582EA151C8DD455000ABB10 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		C5C0473F1C8DD16E00B6A6EF /* ColorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSpec.swift; sourceTree = "<group>"; };
+		C5C047401C8DD16E00B6A6EF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5C047411C8DD16E00B6A6EF /* UIColorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorSpec.swift; sourceTree = "<group>"; };
 		C5C4DB241AE80B3B004EB33D /* ColorSpace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorSpace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C4DB281AE80B3B004EB33D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5C4DB291AE80B3B004EB33D /* ColorSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorSpace.h; sourceTree = "<group>"; };
-		C5C4DB2F1AE80B3B004EB33D /* ColorSpace.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorSpace.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C5C4DB351AE80B3B004EB33D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5C4DB2F1AE80B3B004EB33D /* ColorSpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorSpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C4DB401AE80B6A004EB33D /* ColorSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSpace.swift; sourceTree = "<group>"; };
-		C5C4DB441AE80ECF004EB33D /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		C5C4DB451AE80ECF004EB33D /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,22 +75,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5C4DB301AE80B3B004EB33D /* ColorSpace.framework in Frameworks */,
-				C5C4DB461AE80ECF004EB33D /* Nimble.framework in Frameworks */,
-				C5C4DB471AE80ECF004EB33D /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C5C0473E1C8DD16E00B6A6EF /* ColorSpaceTests */ = {
+			isa = PBXGroup;
+			children = (
+				C5C0473F1C8DD16E00B6A6EF /* ColorSpec.swift */,
+				C5C047401C8DD16E00B6A6EF /* Info.plist */,
+				C5C047411C8DD16E00B6A6EF /* UIColorSpec.swift */,
+			);
+			path = ColorSpaceTests;
+			sourceTree = "<group>";
+		};
 		C5C4DB1A1AE80B3B004EB33D = {
 			isa = PBXGroup;
 			children = (
-				C5C4DB441AE80ECF004EB33D /* Nimble.framework */,
-				C5C4DB451AE80ECF004EB33D /* Quick.framework */,
-				C5C4DB261AE80B3B004EB33D /* Color */,
-				C5C4DB331AE80B3B004EB33D /* ColorTests */,
+				C582EA141C8DD455000ABB10 /* Nimble.framework */,
+				C582EA151C8DD455000ABB10 /* Quick.framework */,
+				C5C4DB261AE80B3B004EB33D /* ColorSpace */,
+				C5C0473E1C8DD16E00B6A6EF /* ColorSpaceTests */,
 				C5C4DB251AE80B3B004EB33D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,12 +106,12 @@
 			isa = PBXGroup;
 			children = (
 				C5C4DB241AE80B3B004EB33D /* ColorSpace.framework */,
-				C5C4DB2F1AE80B3B004EB33D /* ColorSpace.xctest */,
+				C5C4DB2F1AE80B3B004EB33D /* ColorSpaceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C5C4DB261AE80B3B004EB33D /* Color */ = {
+		C5C4DB261AE80B3B004EB33D /* ColorSpace */ = {
 			isa = PBXGroup;
 			children = (
 				C5C4DB291AE80B3B004EB33D /* ColorSpace.h */,
@@ -118,6 +123,7 @@
 				C5670CD11C8D9AA00065BCF3 /* CGFloatExtensions.swift */,
 				C5C4DB271AE80B3B004EB33D /* Supporting Files */,
 			);
+			name = ColorSpace;
 			path = Color;
 			sourceTree = "<group>";
 		};
@@ -125,24 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				C5C4DB281AE80B3B004EB33D /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C5C4DB331AE80B3B004EB33D /* ColorTests */ = {
-			isa = PBXGroup;
-			children = (
-				C54F4B701C8DCAD200829FF4 /* ColorSpec.swift */,
-				C5670CCF1C8D91B50065BCF3 /* UIColorSpec.swift */,
-				C5C4DB341AE80B3B004EB33D /* Supporting Files */,
-			);
-			path = ColorTests;
-			sourceTree = "<group>";
-		};
-		C5C4DB341AE80B3B004EB33D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C5C4DB351AE80B3B004EB33D /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -195,7 +183,7 @@
 			);
 			name = ColorSpaceTests;
 			productName = ColorTests;
-			productReference = C5C4DB2F1AE80B3B004EB33D /* ColorSpace.xctest */;
+			productReference = C5C4DB2F1AE80B3B004EB33D /* ColorSpaceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -240,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5C047431C8DD16E00B6A6EF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C54F4B711C8DCAD200829FF4 /* ColorSpec.swift in Sources */,
 				C5670CC91C8D82760065BCF3 /* RGB.swift in Sources */,
 				C5670CC51C8D81B50065BCF3 /* HSV.swift in Sources */,
 				C5670CD21C8D9AA00065BCF3 /* CGFloatExtensions.swift in Sources */,
@@ -271,7 +259,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5670CD01C8D91B50065BCF3 /* UIColorSpec.swift in Sources */,
+				C5C047461C8DD19C00B6A6EF /* ColorSpec.swift in Sources */,
+				C5C047451C8DD19A00B6A6EF /* UIColorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,17 +406,16 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(SRCROOT)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = ColorTests/Info.plist;
+				INFOPLIST_FILE = ColorSpaceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.fluiddynamics.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ColorSpace;
+				PRODUCT_NAME = ColorSpaceTests;
 			};
 			name = Debug;
 		};
@@ -437,13 +425,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(SRCROOT)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = ColorTests/Info.plist;
+				INFOPLIST_FILE = ColorSpaceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.fluiddynamics.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ColorSpace;
+				PRODUCT_NAME = ColorSpaceTests;
 			};
 			name = Release;
 		};

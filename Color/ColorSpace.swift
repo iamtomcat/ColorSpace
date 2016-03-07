@@ -23,20 +23,20 @@ protocol ColorData {
   var toHSV: HSV { get }
 }
 
-extension Color: OSColorProtocol {
+extension ColorSpace: OSColorProtocol {
   public var toOSColor: OSColor {
     let hsv = data.toHSV
     return OSColor(hue: hsv.v, saturation: hsv.s, brightness: hsv.v, alpha: hsv.a)
   }
 }
 
-extension Color: Equatable {}
+extension ColorSpace: Equatable {}
 
-public func ==(lhs: Color, rhs: Color) -> Bool {
+public func ==(lhs: ColorSpace, rhs: ColorSpace) -> Bool {
   return lhs.rgb == rhs.rgb
 }
 
-public struct Color {
+public struct ColorSpace {
   private let data: ColorData
 
   public init (h360: CGFloat, s: CGFloat, v: CGFloat, a: CGFloat=1.0) {
@@ -65,7 +65,7 @@ public struct Color {
     self.data = hsl
   }
 
-  public func roundColor(byValue value: CGFloat) -> Color {
+  public func roundColor(byValue value: CGFloat) -> ColorSpace {
     let hsl = self.data.toHSL
     var s = hsl.s, l = hsl.l
     if hsl.s >= 0.7 {
@@ -79,7 +79,7 @@ public struct Color {
     } else if l <= 0.3 {
       l += value
     }
-    return Color(h: hsl.h, s: s, l: l)
+    return ColorSpace(h: hsl.h, s: s, l: l)
   }
 
   public var rgb: RGB {
